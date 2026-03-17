@@ -32,6 +32,7 @@ class Program
             Console.WriteLine("14. Xoa sinh vien theo ID");
             Console.WriteLine("15. Tra tu dien Anh - Viet");
             Console.WriteLine("16. Dem so lan xuat hien cua ky tu");
+            Console.WriteLine("17. Tim so xuat hien nhieu nhat");
             Console.WriteLine("0. Thoat");
             Console.Write("Chon: ");
             int choice = int.Parse(Console.ReadLine());
@@ -56,6 +57,7 @@ class Program
                 case 14: Bai14(); break;
                 case 15: Bai15(); break;
                 case 16: Bai16(); break;
+                case 17: Bai17(); break;
                 default: Console.WriteLine("Lua chon khong hop le!"); break;
             }
 
@@ -477,5 +479,47 @@ class Program
         foreach (var kvp in charCount)
             Console.WriteLine($"{kvp.Key} : {kvp.Value}");
     }
-}
 
+    static void Bai17()
+    {
+        Console.WriteLine("Nguyen Truc Quynh");
+        Console.WriteLine("22115053122335");
+
+        List<int> numbers = new List<int>();
+
+        Console.Write("Nhap so luong: ");
+        int n = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write("Nhap so: ");
+            numbers.Add(int.Parse(Console.ReadLine()));
+        }
+
+        Dictionary<int, int> frequency = new Dictionary<int, int>();
+
+        foreach (int num in numbers)
+        {
+            if (frequency.ContainsKey(num))
+                frequency[num]++;
+            else
+                frequency[num] = 1;
+        }
+
+        int mostFrequentNumber = numbers[0];
+        int maxFrequency = frequency[mostFrequentNumber];
+
+        foreach (var kvp in frequency)
+        {
+            if (kvp.Value > maxFrequency)
+            {
+                mostFrequentNumber = kvp.Key;
+                maxFrequency = kvp.Value;
+            }
+        }
+
+        Console.WriteLine($"So xuat hien nhieu nhat: {mostFrequentNumber} (xuat hien {maxFrequency} lan)");
+    }
+
+
+}
