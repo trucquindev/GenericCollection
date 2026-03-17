@@ -29,6 +29,7 @@ class Program
             Console.WriteLine("11. Hien thi danh sach sinh vien");
             Console.WriteLine("12. Tim sinh vien theo ten");
             Console.WriteLine("13. Dem so sinh vien");
+            Console.WriteLine("14. Xoa sinh vien theo ID");
             Console.WriteLine("0. Thoat");
             Console.Write("Chon: ");
             int choice = int.Parse(Console.ReadLine());
@@ -50,6 +51,7 @@ class Program
                 case 11: Bai11(); break;
                 case 12: Bai12(); break;
                 case 13: Bai13(); break;
+                case 14: Bai14(); break;
                 default: Console.WriteLine("Lua chon khong hop le!"); break;
             }
 
@@ -380,5 +382,44 @@ class Program
         }
 
         Console.WriteLine("Tong so sinh vien: " + students.Count);
+    }
+
+    static void Bai14()
+    {
+        Console.WriteLine("Nguyen Truc Quynh");
+        Console.WriteLine("22115053122335");
+
+        List<Student> students = new List<Student>();
+
+        Console.Write("Nhap so luong sinh vien: ");
+        int n = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < n; i++)
+        {
+            Student s = new Student();
+            Console.Write("Nhap ID: ");
+            s.Id = int.Parse(Console.ReadLine());
+            Console.Write("Nhap ten: ");
+            s.Name = Console.ReadLine();
+            students.Add(s);
+        }
+
+        Console.Write("Nhap ID sinh vien can xoa: ");
+        int idToRemove = int.Parse(Console.ReadLine());
+
+        Student studentToRemove = null;
+        foreach (var s in students)
+            if (s.Id == idToRemove)
+            {
+                studentToRemove = s;
+                break;
+            }
+        if (studentToRemove != null)
+        {
+            students.Remove(studentToRemove);
+            Console.WriteLine("Da xoa sinh vien co ID " + idToRemove);
+        }
+        else
+            Console.WriteLine("Khong tim thay sinh vien co ID " + idToRemove);
     }
 }
