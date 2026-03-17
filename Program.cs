@@ -19,6 +19,7 @@ class Program
             Console.WriteLine("7. Sap xep danh sach");
             Console.WriteLine("8. Dao nguoc danh sach");
             Console.WriteLine("9. Loai bo phan tu trung lap");
+            Console.WriteLine("10. Tim so nho nhat");
             Console.WriteLine("0. Thoat");
             Console.Write("Chon: ");
             int choice = int.Parse(Console.ReadLine());
@@ -36,6 +37,7 @@ class Program
                 case 7: Bai7(); break;
                 case 8: Bai8(); break;
                 case 9: Bai9(); break;
+                case 10: Bai10(); break;
                 default: Console.WriteLine("Lua chon khong hop le!"); break;
             }
 
@@ -262,38 +264,27 @@ class Program
         foreach (int x in newList)
             Console.WriteLine(x);
     }
+
+    static void Bai10()
+    {
+        Console.WriteLine("Nguyen Truc Quynh");
+        Console.WriteLine("22115053122335");
+
+        List<int> numbers = new List<int>();
+
+        Console.Write("Nhap so luong: ");
+        int n = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write("Nhap so: ");
+            numbers.Add(int.Parse(Console.ReadLine()));
+        }
+
+        int min = numbers[0];
+        foreach (int x in numbers)
+            if (x < min) min = x;
+
+        Console.WriteLine("So nho nhat: " + min);
+    }
 }
-
-// Bài 8. Đảo ngược danh sách
-// Tạo List<int>
-
-// Đảo ngược thứ tự phần tử.
-
-// Bài 9. Loại bỏ phần tử trùng lặp
-// Nhập List<int>
-
-// Tạo danh sách mới không chứa phần tử trùng.
-
-// Bài 10. Tìm phần tử nhỏ nhất
-// Viết chương trình tìm giá trị nhỏ nhất trong List<int>.
-
-// Bài 11. Lưu danh sách sinh viên
-// Tạo class:
-
-// class Student {     public int Id;     public string Name; }
-// Lưu danh sách sinh viên trong List<Student>
-
-// In thông tin sinh viên.
-
-// Bài 12. Tìm sinh viên theo tên
-// Từ List<Student>
-
-// Tìm sinh viên theo tên nhập vào.
-
-// Bài 13. Đếm số sinh viên
-// Đếm tổng số sinh viên trong List<Student>.
-
-// Bài 14. Xóa sinh viên theo ID
-// Nhập ID
-
-// Xóa sinh viên có ID đó khỏi danh sách.
