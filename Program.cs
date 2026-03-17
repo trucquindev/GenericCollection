@@ -7,7 +7,12 @@ class Student
     public int Id;
     public string Name;
 }
-
+class StudentV2
+{
+    public int Id;
+    public string Name;
+    public double Score;
+}
 class Program
 {
 
@@ -33,6 +38,7 @@ class Program
             Console.WriteLine("15. Tra tu dien Anh - Viet");
             Console.WriteLine("16. Dem so lan xuat hien cua ky tu");
             Console.WriteLine("17. Tim so xuat hien nhieu nhat");
+            Console.WriteLine("18. Quan ly diem sinh vien");
             Console.WriteLine("0. Thoat");
             Console.Write("Chon: ");
             int choice = int.Parse(Console.ReadLine());
@@ -58,6 +64,7 @@ class Program
                 case 15: Bai15(); break;
                 case 16: Bai16(); break;
                 case 17: Bai17(); break;
+                case 18: Bai18(); break;
                 default: Console.WriteLine("Lua chon khong hop le!"); break;
             }
 
@@ -521,5 +528,33 @@ class Program
         Console.WriteLine($"So xuat hien nhieu nhat: {mostFrequentNumber} (xuat hien {maxFrequency} lan)");
     }
 
+    static void Bai18()
+    {
+        Console.WriteLine("Nguyen Truc Quynh");
+        Console.WriteLine("22115053122335");
 
+        List<StudentV2> students = new List<StudentV2>();
+
+        Console.Write("Nhap so luong sinh vien: ");
+        int n = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < n; i++)
+        {
+            StudentV2 s = new StudentV2();
+            Console.Write("Nhap ID: ");
+            s.Id = int.Parse(Console.ReadLine());
+            Console.Write("Nhap ten: ");
+            s.Name = Console.ReadLine();
+            Console.Write("Nhap diem: ");
+            s.Score = double.Parse(Console.ReadLine());
+            students.Add(s);
+        }
+
+        StudentV2 topStudent = students[0];
+        foreach (var s in students)
+            if (s.Score > topStudent.Score)
+                topStudent = s;
+
+        Console.WriteLine($"Sinh vien co diem cao nhat: {topStudent.Name} (ID: {topStudent.Id}, Score: {topStudent.Score})");
+    }
 }
