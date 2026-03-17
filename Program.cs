@@ -18,6 +18,7 @@ class Program
             Console.WriteLine("6. Kiem tra phan tu ton tai");
             Console.WriteLine("7. Sap xep danh sach");
             Console.WriteLine("8. Dao nguoc danh sach");
+            Console.WriteLine("9. Loai bo phan tu trung lap");
             Console.WriteLine("0. Thoat");
             Console.Write("Chon: ");
             int choice = int.Parse(Console.ReadLine());
@@ -34,6 +35,7 @@ class Program
                 case 6: Bai6(); break;
                 case 7: Bai7(); break;
                 case 8: Bai8(); break;
+                case 9: Bai9(); break;
                 default: Console.WriteLine("Lua chon khong hop le!"); break;
             }
 
@@ -234,6 +236,31 @@ class Program
         Console.WriteLine("Danh sach sau khi dao nguoc:");
         foreach (int num in numbers)
             Console.Write(num + " ");
+    }
+
+    static void Bai9()
+    {
+        Console.WriteLine("Nguyen Truc Quynh");
+        Console.WriteLine("22115053122335");
+
+        List<int> numbers = new List<int>();
+        List<int> newList = new List<int>();
+
+        Console.Write("Nhap so luong: ");
+        int n = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write("Nhap so: ");
+            numbers.Add(int.Parse(Console.ReadLine()));
+        }
+
+        foreach (int x in numbers)
+            if (!newList.Contains(x))
+                newList.Add(x);
+
+        foreach (int x in newList)
+            Console.WriteLine(x);
     }
 }
 
