@@ -12,6 +12,7 @@ class Program
             Console.WriteLine("\n===== MENU =====");
             Console.WriteLine("1. Tao list so");
             Console.WriteLine("2. Tinh tong list so");
+            Console.WriteLine("3. Tim so lon nhat");
             Console.WriteLine("0. Thoat");
             Console.Write("Chon: ");
             int choice = int.Parse(Console.ReadLine());
@@ -22,6 +23,7 @@ class Program
             {
                 case 1: Bai1(); break;
                 case 2: Bai2(); break;
+                case 3: Bai3(); break;
                 default: Console.WriteLine("Lua chon khong hop le!"); break;
             }
 
@@ -67,6 +69,26 @@ class Program
             sum += x;
 
         Console.WriteLine("Tong = " + sum);
+    }
+
+    static void Bai3()
+    {
+        List<int> numbers = new List<int>();
+
+        Console.Write("Nhap so luong: ");
+        int n = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write("Nhap so: ");
+            numbers.Add(int.Parse(Console.ReadLine()));
+        }
+
+        int max = numbers[0];
+        foreach (int x in numbers)
+            if (x > max) max = x;
+
+        Console.WriteLine("So lon nhat: " + max);
     }
 
 
