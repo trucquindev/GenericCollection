@@ -30,6 +30,7 @@ class Program
             Console.WriteLine("12. Tim sinh vien theo ten");
             Console.WriteLine("13. Dem so sinh vien");
             Console.WriteLine("14. Xoa sinh vien theo ID");
+            Console.WriteLine("15. Tra tu dien Anh - Viet");
             Console.WriteLine("0. Thoat");
             Console.Write("Chon: ");
             int choice = int.Parse(Console.ReadLine());
@@ -52,6 +53,7 @@ class Program
                 case 12: Bai12(); break;
                 case 13: Bai13(); break;
                 case 14: Bai14(); break;
+                case 15: Bai15(); break;
                 default: Console.WriteLine("Lua chon khong hop le!"); break;
             }
 
@@ -421,5 +423,33 @@ class Program
         }
         else
             Console.WriteLine("Khong tim thay sinh vien co ID " + idToRemove);
+    }
+
+    static void Bai15()
+    {
+        Console.WriteLine("Nguyen Truc Quynh");
+        Console.WriteLine("22115053122335");
+
+        Dictionary<string, string> dictionary = new Dictionary<string, string>();
+
+        Console.Write("Nhap so luong tu: ");
+        int n = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write("Nhap tu tieng Anh: ");
+            string englishWord = Console.ReadLine();
+            Console.Write("Nhap nghia tieng Viet: ");
+            string vietnameseMeaning = Console.ReadLine();
+            dictionary[englishWord] = vietnameseMeaning;
+        }
+
+        Console.Write("Nhap tu tieng Anh can tra nghia: ");
+        string wordToTranslate = Console.ReadLine();
+
+        if (dictionary.ContainsKey(wordToTranslate))
+            Console.WriteLine("Nghia tieng Viet: " + dictionary[wordToTranslate]);
+        else
+            Console.WriteLine("Khong tim thay tu " + wordToTranslate);
     }
 }
