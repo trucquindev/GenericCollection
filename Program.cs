@@ -5,13 +5,14 @@ using System.Collections.Generic;
 
 class Program
 {
-    static List<int> numbers = new List<int>();
     static void Main(string[] args)
     {
         while (true)
         {
             Console.WriteLine("\n===== MENU =====");
             Console.WriteLine("1. Tao list so");
+            Console.WriteLine("2. Tinh tong list so");
+            Console.WriteLine("0. Thoat");
             Console.Write("Chon: ");
             int choice = int.Parse(Console.ReadLine());
 
@@ -20,7 +21,8 @@ class Program
             switch (choice)
             {
                 case 1: Bai1(); break;
-
+                case 2: Bai2(); break;
+                default: Console.WriteLine("Lua chon khong hop le!"); break;
             }
 
         }
@@ -29,6 +31,8 @@ class Program
 
     static void Bai1()
     {
+        List<int> numbers = new List<int>();
+
         Console.Write("Nhap so luong phan tu: ");
         int n = int.Parse(Console.ReadLine());
         numbers.Clear();
@@ -45,7 +49,25 @@ class Program
         }
     }
 
+    static void Bai2()
+    {
+        List<int> numbers = new List<int>();
 
+        Console.Write("Nhap so luong: ");
+        int n = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write("Nhap so: ");
+            numbers.Add(int.Parse(Console.ReadLine()));
+        }
+
+        int sum = 0;
+        foreach (int x in numbers)
+            sum += x;
+
+        Console.WriteLine("Tong = " + sum);
+    }
 
 
 }
