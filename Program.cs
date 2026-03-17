@@ -27,6 +27,7 @@ class Program
             Console.WriteLine("9. Loai bo phan tu trung lap");
             Console.WriteLine("10. Tim so nho nhat");
             Console.WriteLine("11. Hien thi danh sach sinh vien");
+            Console.WriteLine("12. Tim sinh vien theo ten");
             Console.WriteLine("0. Thoat");
             Console.Write("Chon: ");
             int choice = int.Parse(Console.ReadLine());
@@ -46,6 +47,7 @@ class Program
                 case 9: Bai9(); break;
                 case 10: Bai10(); break;
                 case 11: Bai11(); break;
+                case 12: Bai12(); break;
                 default: Console.WriteLine("Lua chon khong hop le!"); break;
             }
 
@@ -318,5 +320,40 @@ class Program
         Console.WriteLine("Danh sach sinh vien:");
         foreach (Student s in students)
             Console.WriteLine($"ID: {s.Id}, Name: {s.Name}");
+    }
+
+    static void Bai12()
+    {
+        Console.WriteLine("Nguyen Truc Quynh");
+        Console.WriteLine("22115053122335");
+
+        List<Student> students = new List<Student>();
+
+        Console.Write("Nhap so luong sinh vien: ");
+        int n = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < n; i++)
+        {
+            Student s = new Student();
+            Console.Write("Nhap ID: ");
+            s.Id = int.Parse(Console.ReadLine());
+            Console.Write("Nhap ten: ");
+            s.Name = Console.ReadLine();
+            students.Add(s);
+        }
+
+        Console.Write("Nhap ten sinh vien can tim: ");
+        string nameToFind = Console.ReadLine();
+
+        bool found = false;
+        foreach (var s in students)
+            if (s.Name == nameToFind)
+            {
+                Console.WriteLine(s.Id + " - " + s.Name);
+                found = true;
+                break;
+            }
+        if (!found)
+            Console.WriteLine("Khong tim thay sinh vien co ten " + nameToFind);
     }
 }
