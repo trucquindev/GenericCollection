@@ -31,6 +31,7 @@ class Program
             Console.WriteLine("13. Dem so sinh vien");
             Console.WriteLine("14. Xoa sinh vien theo ID");
             Console.WriteLine("15. Tra tu dien Anh - Viet");
+            Console.WriteLine("16. Dem so lan xuat hien cua ky tu");
             Console.WriteLine("0. Thoat");
             Console.Write("Chon: ");
             int choice = int.Parse(Console.ReadLine());
@@ -54,6 +55,7 @@ class Program
                 case 13: Bai13(); break;
                 case 14: Bai14(); break;
                 case 15: Bai15(); break;
+                case 16: Bai16(); break;
                 default: Console.WriteLine("Lua chon khong hop le!"); break;
             }
 
@@ -452,4 +454,28 @@ class Program
         else
             Console.WriteLine("Khong tim thay tu " + wordToTranslate);
     }
+
+    static void Bai16()
+    {
+        Console.WriteLine("Nguyen Truc Quynh");
+        Console.WriteLine("22115053122335");
+
+        Console.Write("Nhap chuoi: ");
+        string input = Console.ReadLine();
+
+        Dictionary<char, int> charCount = new Dictionary<char, int>();
+
+        foreach (char c in input)
+        {
+            if (charCount.ContainsKey(c))
+                charCount[c]++;
+            else
+                charCount[c] = 1;
+        }
+
+        Console.WriteLine("So lan xuat hien cua moi ky tu:");
+        foreach (var kvp in charCount)
+            Console.WriteLine($"{kvp.Key} : {kvp.Value}");
+    }
 }
+
